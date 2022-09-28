@@ -41,3 +41,5 @@ Training HARP:
 Exhibition:
 1) Modify paths in GenerateAnimation.m according to your downloaded dataset path and generated gesture file path.
 2) Run GenerateAnimation.m to genarate MATLAB animation and MP4 video file.
+
+harpgen(*).mp4 are videos from real human (true) or generated gestures (false), can you tell if they are true?
