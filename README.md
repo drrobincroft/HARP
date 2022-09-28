@@ -18,3 +18,26 @@ The training data for HARP orginates from "Learning Speech-driven 3D Conversatio
 
 Acknowledgement:
 Thanks to the great dataset contributed by Ikhsanul Habibie et al. "Learning Speech-driven 3D Conversational Gestures from Video", which is 3D training data annotations reconstructed from more than 33 hours of in-the-wild videos of talking subjects.
+
+Here is instruction for installing and running the program. All program is tested on Windows 10 and Nvidia GeForce RTX 3090 GPU.
+Preparation:
+1) Downloading dataset from http://gvv.mpi-inf.mpg.de/projects/3d_speech_driven_gesture/ partly if you do not need all subjects.
+2) Downloading simple MFCC extractor by Pavan Kumar from https://github.com/dspavankumar/compute-mfcc.
+3) Downloading library to read/write .npy and .npz files in C/C++ by Carl Rogers from https://github.com/rogersce/cnpy.
+4) Build a project for mfcc extractor MFCC.cpp. This is very easy for all involved code is plain and simple. The code shows how to transfer a wave file (only support 16000Hz BPS) into MFCC sequence.
+
+Generating Training Data:
+1) Download Matlab NPY file reader and writer from https://github.com/kwikteam/npy-matlab. We need readNPY.m and writeNPY.m, etc.
+2) Modify example code PreprocessBodyDataAfterMFCC.m according to your downloaded dataset path and speech style preference (we choose gentle style for example).
+3) Run mfcc extractor to get MFCC sequence from a group of origin data (e.g., subject "ellen").
+4) Run PreprocessBodyDataAfterMFCC.m to get training data.
+
+Training HARP:
+1) Install torch>=1.10.2,numpy,pylab,matplotlib into Python 3.6.8.
+2) Modify paths in PrepareData.py according to your downloaded dataset path.
+3) HARP has a generator and a discriminator (AntiHARP). In Main.py, GH.Train(30000,5e-7) represents training generator 30000 iterations with inital learning rate 5e-7. The rest example code is similar.4),  GH.Test() represents predicting gestures with generator on the testing data. You can also use other wav file to test.
+5) You should train the generator and the discriminator alternatively until is validation loss of generator decreases no more. But sometimes, we found that is not enough for LSTM ramdomly-initialized states. In that case, you should try more iterations. This process will create a file named gen_harp.pth representing the trained neural network.
+
+Exhibition:
+1) Modify paths in GenerateAnimation.m according to your downloaded dataset path and generated gesture file path.
+2) Run GenerateAnimation.m to genarate MATLAB animation and MP4 video file.
