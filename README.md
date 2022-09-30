@@ -35,7 +35,8 @@ Generating Training Data:
 Training HARP:
 1) Install torch>=1.10.2,numpy,pylab,matplotlib into Python 3.6.8.
 2) Modify paths in PrepareData.py according to your downloaded dataset path.
-3) HARP has a generator and a discriminator (AntiHARP). In Main.py, GH.Train(30000,5e-7) represents training generator 30000 iterations with inital learning rate 5e-7. The rest example code is similar.4),  GH.Test() represents predicting gestures with generator on the testing data. You can also use other wav file to test.
+3) HARP has a generator and a discriminator (AntiHARP). In Main.py, GH.Train(30000,5e-7) represents training generator 30000 iterations with inital learning rate 5e-7. The rest example code is similar.
+4) GH.Test() represents predicting gestures with generator on the testing data. You can also use other wav file to test.
 5) You should train the generator and the discriminator alternatively until is validation loss of generator decreases no more. But sometimes, we found that is not enough for LSTM ramdomly-initialized states. In that case, you should try more iterations. This process will create a file named gen_harp.pth representing the trained neural network.
 
 Exhibition:
