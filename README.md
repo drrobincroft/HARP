@@ -6,7 +6,7 @@ https://user-images.githubusercontent.com/49083808/192747399-3b3bf088-9f43-4c96-
 An Angle-Oriented Approach to Transferring Speech to Gesture for Highly Anthropomorphized Embodied Conversational Agents
 
 This repository gives all necessary code and data link to build and train HARP, a novel neural network to trasfer speech audio into co-speech gestures.
-The code and data link serve as a supplyment to the article "HARP: An Improved Approach to Transferring Speech To Gesture Based on CNN and LSTM". Anyone can download and use it.
+The code and data link serve as a supplyment to the article "An Angle-Oriented Approach to Transferring Speech to Gesture for Highly Anthropomorphized Embodied Conversational Agents". Anyone can download and use it.
 It contains C and MATLAB code to transfer key point coordinates into angles for convinence to process, and Python Code for building and training HARP.
 
 Abstract:
